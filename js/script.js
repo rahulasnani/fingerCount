@@ -20,7 +20,8 @@
 	var end = 0;
 	start = new Date().getTime();
 
-	var dps = [{x: 0, y: 0}];
+	var dps1 = [{x: 0, y: 0}];
+	var dps2 = [{x: 0, y: 0}];
 	function myFunction(event) {
 
 	    var x = event.which || event.keyCode;   
@@ -38,19 +39,50 @@
       	},
       	data: [{
       		type: "line",
-      		dataPoints : dps
-      	}]
+      		dataPoints : dps1,
+			//visible : false,
+			
+      	},
+		{
+      		type: "line",
+      		dataPoints : dps2,
+		}	
+			]
       });
 
       chart.render();
+	  
+	  
+	  
+	 function toogleDataSeries(e){
+	if (e.dataSeries.visible == true) {
+		e.dataSeries.visible = false;
+	} else{
+		e.dataSeries.visible = true;
+	}
+	chart.render();
+	}
 
-      function updateChart(xx,yy) {
+
+      function updateChart1(xx,yy) {
       		var xVal = xx;
         	var yVal = yy;
-      	dps.push({x: xVal,y: yVal});
-      	if (dps.length >  10 )
+      	dps1.push({x: xVal,y: yVal});
+      	if (dps1.length >  10 )
       	{
-      		dps.shift();				
+      		dps1.shift();				
+      	}
+      	chart.render();		 
+
+};
+ 
+	 function updateChart2(xx,yy) {
+      		var xVal = xx;
+        	var yVal = yy;
+      	dps2.push({x: xVal,y: yVal});
+      	if (dps2.length >  10 )
+      	{
+      		dps2.shift();				
       	}
       	chart.render();		 
 
@@ -63,7 +95,7 @@
 			time_left_ring = (end - start)/1000;
 			console.log(1/time_left_ring);
 			start = new Date().getTime();	
-			updateChart(left_ring,(1/time_left_ring));
+			updateChart1(left_ring,(1/time_left_ring));
 
 	    }else if(x==56 || x==105 || x==107 || x==44 || x==60 || x==42){
 	    	right_middle++;
@@ -71,7 +103,7 @@
 			time_right_middle = (end - start)/1000;
 			console.log(1/time_right_middle);
 			start = new Date().getTime();	
-			updateChart(right_ring,1/time_right_middle);
+			updateChart2(right_middle,1/time_right_middle);
 
 	   	}else if(x==57 || x==111 || x==108 || x==46 || x==62 || x==40){
 	    	right_ring++;
@@ -162,5 +194,5 @@
 	    e.preventDefault();
 	});
 
-
+	
 
