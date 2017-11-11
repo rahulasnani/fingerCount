@@ -22,6 +22,14 @@
 
 	var dps1 = [{x: 0, y: 0}];
 	var dps2 = [{x: 0, y: 0}];
+	var dps3 = [{x: 0, y: 0}];
+	var dps4 = [{x: 0, y: 0}];
+	var dps5 = [{x: 0, y: 0}];
+	var dps6 = [{x: 0, y: 0}];
+	var dps7 = [{x: 0, y: 0}];
+	var dps8 = [{x: 0, y: 0}];
+	var dps9 = [{x: 0, y: 0}];
+	
 	function myFunction(event) {
 
 	    var x = event.which || event.keyCode;   
@@ -46,22 +54,53 @@
 		{
       		type: "line",
       		dataPoints : dps2,
-		}	
+		},
+		{
+      		type: "line",
+      		dataPoints : dps2,
+		},
+		{
+      		type: "line",
+      		dataPoints : dps3,
+		},
+		{
+      		type: "line",
+      		dataPoints : dps4,
+		},
+		{
+      		type: "line",
+      		dataPoints : dps5,
+		},
+		{
+      		type: "line",
+      		dataPoints : dps6,
+		},
+		{
+      		type: "line",
+      		dataPoints : dps7,
+		},
+		{
+      		type: "line",
+      		dataPoints : dps8,
+		},
+		{
+      		type: "line",
+      		dataPoints : dps9,
+		}					
 			]
       });
+	  
 
       chart.render();
 	  
 	  
+
+      
 	  
-	 function toogleDataSeries(e){
-	if (e.dataSeries.visible == true) {
-		e.dataSeries.visible = false;
-	} else{
-		e.dataSeries.visible = true;
-	}
-	chart.render();
-	}
+	  
+	
+
+	
 
 
       function updateChart1(xx,yy) {
@@ -87,7 +126,86 @@
       	chart.render();		 
 
 };
- 
+	
+	function updateChart3(xx,yy) {
+      		var xVal = xx;
+        	var yVal = yy;
+      	dps3.push({x: xVal,y: yVal});
+      	if (dps3.length >  10 )
+      	{
+      		dps3.shift();				
+      	}
+      	chart.render();		 
+
+};
+
+	function updateChart4(xx,yy) {
+      		var xVal = xx;
+        	var yVal = yy;
+      	dps4.push({x: xVal,y: yVal});
+      	if (dps4.length >  10 )
+      	{
+      		dps4.shift();				
+      	}
+      	chart.render();		 
+
+};
+	function updateChart5(xx,yy) {
+      		var xVal = xx;
+        	var yVal = yy;
+      	dps5.push({x: xVal,y: yVal});
+      	if (dps5.length >  10 )
+      	{
+      		dps5.shift();				
+      	}
+      	chart.render();		 
+
+};
+	function updateChart6(xx,yy) {
+      		var xVal = xx;
+        	var yVal = yy;
+      	dps6.push({x: xVal,y: yVal});
+      	if (dps6.length >  10 )
+      	{
+      		dps6.shift();				
+      	}
+      	chart.render();		 
+
+};
+	function updateChart7(xx,yy) {
+      		var xVal = xx;
+        	var yVal = yy;
+      	dps7.push({x: xVal,y: yVal});
+      	if (dps7.length >  10 )
+      	{
+      		dps7.shift();				
+      	}
+      	chart.render();		 
+
+};
+	function updateChart8(xx,yy) {
+      		var xVal = xx;
+        	var yVal = yy;
+      	dps8.push({x: xVal,y: yVal});
+      	if (dps8.length >  10 )
+      	{
+      		dps8.shift();				
+      	}
+      	chart.render();		 
+
+};
+	function updateChart9(xx,yy) {
+      		var xVal = xx;
+        	var yVal = yy;
+      	dps9.push({x: xVal,y: yVal});
+      	if (dps9.length >  10 )
+      	{
+      		dps9.shift();				
+      	}
+      	chart.render();		 
+
+};
+	
 
 	    if(x==50 || x==119 || x==115 || x==120 || x==64){
 	    	left_ring++;
@@ -111,7 +229,8 @@
 			time_right_ring = (end - start)/1000;
 			console.log(1/time_right_ring);
 			start = new Date().getTime();	
-			updateChart(right_ring,1/time_right_ring);
+			updateChart3(right_ring,1/time_right_ring);
+			
 	   	}
 
 	    else if(x==51 || x==35 || x==101 || x==100 || x==99){
@@ -120,7 +239,7 @@
 			time_left_middle = (end - start)/1000;
 			console.log(1/time_left_middle);
 			start = new Date().getTime();	
-			updateChart(left_middle,1/time_left_middle);
+			updateChart4(left_middle,1/time_left_middle);
 	    }
 
 	    else if(x==54 || x==94 || x==55 || x==38 || x==121 || x==117 || x==104 || x==106 || x==110 || x==109){
@@ -129,7 +248,7 @@
 			time_right_index = (end - start)/1000;
 			console.log(1/time_right_index);
 			start = new Date().getTime();	
-			updateChart(right_index,1/time_right_index);
+			updateChart5(right_index,1/time_right_index);
 	    }
 		 else if(x==52 || x==36 || x==53 || x==37 || x==114 || x==116 || x==102 || x==103 || x==118|| x==98){
 	    	left_index++; 
@@ -137,7 +256,7 @@
 			time_left_index = (end - start)/1000;
 			console.log(1/time_left_index);
 			start = new Date().getTime();	
-			updateChart(left_index,1/time_left_index);
+			updateChart6(left_index,1/time_left_index);
 
 	    }else if(x==48 || x== 41 || x==45 || x==95 || x== 80 || x==112 || x==91 || x== 123 || x==125 || x==93 || x==59 || x==58 || x==34 || x== 39 || x==13 || x==47 || x==63){
 	    	right_small++;
@@ -145,7 +264,7 @@
 			time_right_small = (end - start)/1000;
 			console.log(1/right_small);
 			start = new Date().getTime();	
-			updateChart(right_small,1/time_right_small);
+			updateChart7(right_small,1/time_right_small);
 	    }
 
 	    else if(x==113 || x== 81 || x==97 || x==65 || x== 122 || x==90 || x==49 || x== 33){
@@ -154,7 +273,7 @@
 			time_left_small = (end - start)/1000;
 			console.log(1/time_left_small);
 			start = new Date().getTime();
-			updateChart(left_ring,1/time_left_ring);	
+			updateChart8(left_small,1/time_left_small);	
 
 	    }else if(x == 32){
 	    	thumb++;	
@@ -162,10 +281,10 @@
 			time_thumb = (end - start)/1000;
 			console.log(1/time_thumb);
 			start = new Date().getTime();
-			updateChart(left_ring,1/time_left_ring);		 
+			updateChart9(thumb,1/time_thumb);		 
 	    }
 
-	}
+	}	
 
 	$("#btn").on('click',function(){
 
