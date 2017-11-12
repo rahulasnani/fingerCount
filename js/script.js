@@ -48,44 +48,48 @@
       	data: [{
       		type: "line",
       		dataPoints : dps1,
-			//visible : false,
+      		color: "#9966cc",
 			
       	},
 		{
       		type: "line",
       		dataPoints : dps2,
-		},
-		{
-      		type: "line",
-      		dataPoints : dps2,
+      		color:"#669999",
 		},
 		{
       		type: "line",
       		dataPoints : dps3,
+      		color:"darkgrey",
 		},
 		{
       		type: "line",
       		dataPoints : dps4,
+      		color:"#cc6666",
 		},
 		{
       		type: "line",
       		dataPoints : dps5,
+      		color:"#ff9999",
 		},
 		{
       		type: "line",
       		dataPoints : dps6,
+			color:"#99cc99",
 		},
 		{
       		type: "line",
       		dataPoints : dps7,
+      		color:"#ffff33",
 		},
 		{
       		type: "line",
       		dataPoints : dps8,
+      		color:"#ff6633",
 		},
 		{
       		type: "line",
       		dataPoints : dps9,
+      		color:"#0066ff",
 		}					
 			]
       });
@@ -93,15 +97,6 @@
 
       chart.render();
 	  
-	  
-
-      
-	  
-	  
-	
-
-	
-
 
       function updateChart1(xx,yy) {
       		var xVal = xx;
@@ -207,7 +202,7 @@
 };
 	
 
-	    if(x==50 || x==119 || x==115 || x==120 || x==64){
+	    if(x==50 || x==119 || x==115 || x==120 || x==64 || x==87 || x==83 || x==88){
 	    	left_ring++;
 			end = new Date().getTime();
 			time_left_ring = (end - start)/1000;
@@ -215,7 +210,7 @@
 			start = new Date().getTime();	
 			updateChart1(left_ring,(1/time_left_ring));
 
-	    }else if(x==56 || x==105 || x==107 || x==44 || x==60 || x==42){
+	    }else if(x==56 || x==105 || x==107 || x==44 || x==60 || x==42 || x==73 || x==75){
 	    	right_middle++;
 	    	end = new Date().getTime();
 			time_right_middle = (end - start)/1000;
@@ -223,7 +218,7 @@
 			start = new Date().getTime();	
 			updateChart2(right_middle,1/time_right_middle);
 
-	   	}else if(x==57 || x==111 || x==108 || x==46 || x==62 || x==40){
+	   	}else if(x==57 || x==111 || x==108 || x==46 || x==62 || x==40 || x==79 || x==76){
 	    	right_ring++;
 	    	end = new Date().getTime();
 			time_right_ring = (end - start)/1000;
@@ -233,7 +228,7 @@
 			
 	   	}
 
-	    else if(x==51 || x==35 || x==101 || x==100 || x==99){
+	    else if(x==51 || x==35 || x==101 || x==100 || x==99 || x==69 || x==67 || x==68){
 	    	left_middle++;
 	    	end = new Date().getTime();
 			time_left_middle = (end - start)/1000;
@@ -242,7 +237,7 @@
 			updateChart4(left_middle,1/time_left_middle);
 	    }
 
-	    else if(x==54 || x==94 || x==55 || x==38 || x==121 || x==117 || x==104 || x==106 || x==110 || x==109){
+	    else if(x==89 || x==85 || x==72 || x==74 || x==77 |x==78 || x==54 || x==94 || x==55 || x==38 || x==121 || x==117 || x==104 || x==106 || x==110 || x==109){
 	    	right_index++;
 	    	end = new Date().getTime();
 			time_right_index = (end - start)/1000;
@@ -250,7 +245,7 @@
 			start = new Date().getTime();	
 			updateChart5(right_index,1/time_right_index);
 	    }
-		 else if(x==52 || x==36 || x==53 || x==37 || x==114 || x==116 || x==102 || x==103 || x==118|| x==98){
+		 else if(x==82 || x==84 || x==70 || x ==71 || x==86 || x==66 ||x==52 || x==36 || x==53 || x==37 || x==114 || x==116 || x==102 || x==103 || x==118|| x==98){
 	    	left_index++; 
 	    	end = new Date().getTime();
 			time_left_index = (end - start)/1000;
