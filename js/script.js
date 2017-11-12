@@ -283,14 +283,23 @@
 
 	$("#btn").on('click',function(){
 
-		$("#demo").html("Left-Ring = " + left_ring + "<br>Right-Ring = " + right_ring +	"<br>Right-Middle = " + right_middle +
-			 "<br>Left-Middle = " + left_middle +
-			 "<br>Right-Index = " + right_index +
-			 "<br>Left-Index = " + left_index +
-			 "<br>Right-Small = " + right_index +
-			 "<br>Left-Small = " + left_index +
-			 "<br> Thumb = "  + thumb
+		$("#demo").removeClass("hor");
+
+		$("#demo1").html(
+			"Left-Index = " + left_index +
+			"<br>Left-Middle = " + left_middle +
+			"<br>Left-Ring = " + left_ring +
+			"<br>Left-Small = " + left_small +
+			"<br> Thumb = "  + thumb
+		);	
+
+		$('#demo2').html(
+			"Right-Index = " + right_index +
+			"<br>Right-Middle = " + right_middle +
+			"<br>Right-Ring = " + right_ring +	
+			"<br>Right-Small = " + right_index 
 			);
+
 
 		 left_ring=0;
 		 right_ring=0;
@@ -308,5 +317,10 @@
 	    e.preventDefault();
 	});
 
-	
+	var arr = [ "Word counter is a word count and a character count tool. Simply place your cursor into the box and begin typing. Word counter will automatically count the number of words and characters as you type. You can also copy and paste a document you have already written into the word counter box and it will display the word count and character numbers for that piece of writing.",
+				"Scolding is something common in student life. Being a naughty boy, I am always scolded by my parents. But one day I was severely scolded by my English teacher. She infect teaches well. But that day, I could not resist the temptation that an adventure of Nancy Drew offered. While she was teaching, I was completely engrossed in reading that book. Nancy Drew was caught in the trap laid by some smugglers and it was then when I felt a light tap on my bent head. The teacher had caught me red handed. She scolded me then and there and insulted me in front of the whole class.",
+				" I was embarrassed. My cheeks burned being guilty conscious. When the class was over, I went to the teacher to apologize. When she saw that I had realized my mistake, she cooled down and then told me in a very kind manner how disheartening it was when she found any student not paying attention. I was genuinely sorry and promised to myself never to commit such a mistake again."
+			  ]
+
+	$("#content").html(arr[Math.floor((Math.random() * 3))])
 
