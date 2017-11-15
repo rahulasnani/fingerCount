@@ -19,25 +19,63 @@
 	var start = 0;
 	var end = 0;
 	start = new Date().getTime();
+	var gross = 0;
+	var time =0;
+	var chart2;
+	var chart;
 
-	var dps1 = [{x: 0, y: 0}];
-	var dps2 = [{x: 0, y: 0}];
-	var dps3 = [{x: 0, y: 0}];
-	var dps4 = [{x: 0, y: 0}];
-	var dps5 = [{x: 0, y: 0}];
-	var dps6 = [{x: 0, y: 0}];
-	var dps7 = [{x: 0, y: 0}];
-	var dps8 = [{x: 0, y: 0}];
-	var dps9 = [{x: 0, y: 0}];
+	var dps1 ;
+	var dps2 ;
+	var dps3 ;
+	var dps4;
+	var dps5 ;
+	var dps6;
+	var dps7 ;
+	var dps8 ;
+	var dps9 ;
+	var dps10;
+	
+	
+	
+	
+	
+	  
+	
+	  
+	  function toggleDataSeries(e) {
+	if (typeof(e.dataSeries.visible) === "undefined" || e.dataSeries.visible) {
+		e.dataSeries.visible = false;
+	}
+	else {
+		e.dataSeries.visible = true;
+	}
+	chart.render();
+	chart2.render();
+}		
 	
 	function myFunction(event) {
 
 	    var x = event.which || event.keyCode;   
 	       //dataPoints. 
-
-      var chart = new CanvasJS.Chart("chartContainer",{
+		   
+		
+	  
+	  if(left_ring==0&& right_ring==0&& right_middle == 0&&left_middle==0&&
+	 right_index == 0&&
+	 left_index==0&&
+	left_small==0&&
+	right_small==0&&
+	 thumb ==0)
+	{
+		$("#demo1").html("");
+		$("#demo2").html("");
+		$("#demo").addClass("hor");
+		
+		 dps10 = [{x: 0, y: 0}];
+		
+		  chart2 = new CanvasJS.Chart("chartContainer2",{
       	title :{
-      		text: "Live Data"
+      		text: "gross speed"
       	},
       	axisX: {						
       		title: "Axis X Title(count)"
@@ -45,58 +83,153 @@
       	axisY: {						
       		title: "Units(speed)"
       	},
+		legend: {
+		cursor:"pointer",
+		verticalAlign: "top",
+		fontSize: 18,
+		fontColor: "dimGrey",
+		itemclick : toggleDataSeries,
+	},
+      	data: [{
+      		type: "line",
+      		dataPoints : dps10,
+      		color: "#9966cc",
+			showInLegend: true,
+		
+		}]
+		
+
+	  });
+	  
+	  
+	  dps1 = [{x: 0, y: 0}];
+	 dps2 = [{x: 0, y: 0}];
+	 dps3 = [{x: 0, y: 0}];
+	 dps4 = [{x: 0, y: 0}];
+	 dps5 = [{x: 0, y: 0}];
+	 dps6 = [{x: 0, y: 0}];
+	 dps7 = [{x: 0, y: 0}];
+	 dps8 = [{x: 0, y: 0}];
+	 dps9 = [{x: 0, y: 0}];
+	 dps10;
+	 
+	    chart = new CanvasJS.Chart("chartContainer", {
+	zoomEnabled: true,
+	title :{
+      		text: "Speed of each finger"
+      	},
+      	axisX: {						
+      		title: "Axis X Title(count)"
+      	},
+      	axisY: {						
+      		title: "Units(speed)"
+      	},
+	legend: {
+		cursor:"pointer",
+		verticalAlign: "top",
+		fontSize: 14,
+		fontColor: "dimGrey",
+		itemclick : toggleDataSeries,
+	},
+	
       	data: [{
       		type: "line",
       		dataPoints : dps1,
       		color: "#9966cc",
+			showInLegend: true,
+			visible : true,
+			name : "Left Ring"
 			
       	},
 		{
       		type: "line",
       		dataPoints : dps2,
       		color:"#669999",
+			showInLegend: true,
+			name : "Right Middle"
 		},
 		{
       		type: "line",
       		dataPoints : dps3,
       		color:"darkgrey",
+			showInLegend: true,
+			name : "Right Ring"
 		},
 		{
       		type: "line",
       		dataPoints : dps4,
       		color:"#cc6666",
+			showInLegend: true,
+			name : "Left Middle"
 		},
 		{
       		type: "line",
       		dataPoints : dps5,
       		color:"#ff9999",
+			showInLegend: true,
+			name : "Right Index"
+			
 		},
 		{
       		type: "line",
       		dataPoints : dps6,
 			color:"#99cc99",
+			showInLegend: true,
+			name : "Left Index"
+			
 		},
 		{
       		type: "line",
       		dataPoints : dps7,
       		color:"#ffff33",
+			showInLegend: true,
+			name : "Right Small"
+			
 		},
 		{
       		type: "line",
       		dataPoints : dps8,
       		color:"#ff6633",
+			showInLegend: true,
+			name : "Left Small"
+			
 		},
 		{
       		type: "line",
       		dataPoints : dps9,
       		color:"#0066ff",
+			showInLegend: true,
+			name : "Thumb"
 		}					
 			]
       });
+	
 	  
+	  
+		
+		
+		
+		
+	}
+	  
+	   function updateChart10(xx,yy) {
+      		var xVal = xx;
+        	var yVal = yy;
+			var speed = Math.round(yy * 10) / 10 ;
+      	dps10.push({x: xVal,y: yVal});
+      	if (dps10.length >  10 )
+      	{
+      		dps10.shift();				
+      	}
+		chart2.options.data[0].legendText = " speed -> " + speed + " Keys per second";
+		
+		
+      	chart2.render();		 
 
-      chart.render();
-	  
+};
+
+	 
+	 
 
       function updateChart1(xx,yy) {
       		var xVal = xx;
@@ -106,6 +239,9 @@
       	{
       		dps1.shift();				
       	}
+		
+		
+	
       	chart.render();		 
 
 };
@@ -197,15 +333,20 @@
       	{
       		dps9.shift();				
       	}
-      	chart.render();		 
+      	chart.render();		
+
+
 
 };
+
+		
+
 	
 
 	    if(x==50 || x==119 || x==115 || x==120 || x==64 || x==87 || x==83 || x==88){
 	    	left_ring++;
 			end = new Date().getTime();
-			time_left_ring = (end - start)/1000;
+			time = time_left_ring = (end - start)/1000;
 			console.log(1/time_left_ring);
 			start = new Date().getTime();	
 			updateChart1(left_ring,(1/time_left_ring));
@@ -213,7 +354,7 @@
 	    }else if(x==56 || x==105 || x==107 || x==44 || x==60 || x==42 || x==73 || x==75){
 	    	right_middle++;
 	    	end = new Date().getTime();
-			time_right_middle = (end - start)/1000;
+			time  = time_right_middle = (end - start)/1000;
 			console.log(1/time_right_middle);
 			start = new Date().getTime();	
 			updateChart2(right_middle,1/time_right_middle);
@@ -221,7 +362,7 @@
 	   	}else if(x==57 || x==111 || x==108 || x==46 || x==62 || x==40 || x==79 || x==76){
 	    	right_ring++;
 	    	end = new Date().getTime();
-			time_right_ring = (end - start)/1000;
+			time = time_right_ring = (end - start)/1000;
 			console.log(1/time_right_ring);
 			start = new Date().getTime();	
 			updateChart3(right_ring,1/time_right_ring);
@@ -231,7 +372,7 @@
 	    else if(x==51 || x==35 || x==101 || x==100 || x==99 || x==69 || x==67 || x==68){
 	    	left_middle++;
 	    	end = new Date().getTime();
-			time_left_middle = (end - start)/1000;
+			time = time_left_middle = (end - start)/1000;
 			console.log(1/time_left_middle);
 			start = new Date().getTime();	
 			updateChart4(left_middle,1/time_left_middle);
@@ -240,7 +381,7 @@
 	    else if(x==89 || x==85 || x==72 || x==74 || x==77 |x==78 || x==54 || x==94 || x==55 || x==38 || x==121 || x==117 || x==104 || x==106 || x==110 || x==109){
 	    	right_index++;
 	    	end = new Date().getTime();
-			time_right_index = (end - start)/1000;
+			time =time_right_index = (end - start)/1000;
 			console.log(1/time_right_index);
 			start = new Date().getTime();	
 			updateChart5(right_index,1/time_right_index);
@@ -248,7 +389,7 @@
 		 else if(x==82 || x==84 || x==70 || x ==71 || x==86 || x==66 ||x==52 || x==36 || x==53 || x==37 || x==114 || x==116 || x==102 || x==103 || x==118|| x==98){
 	    	left_index++; 
 	    	end = new Date().getTime();
-			time_left_index = (end - start)/1000;
+			time = time_left_index = (end - start)/1000;
 			console.log(1/time_left_index);
 			start = new Date().getTime();	
 			updateChart6(left_index,1/time_left_index);
@@ -256,7 +397,7 @@
 	    }else if(x==48 || x== 41 || x==45 || x==95 || x== 80 || x==112 || x==91 || x== 123 || x==125 || x==93 || x==59 || x==58 || x==34 || x== 39 || x==13 || x==47 || x==63){
 	    	right_small++;
 	    	end = new Date().getTime();
-			time_right_small = (end - start)/1000;
+			time = time_right_small = (end - start)/1000;
 			console.log(1/right_small);
 			start = new Date().getTime();	
 			updateChart7(right_small,1/time_right_small);
@@ -265,7 +406,7 @@
 	    else if(x==113 || x== 81 || x==97 || x==65 || x== 122 || x==90 || x==49 || x== 33){
 		    left_small++;
 		    end = new Date().getTime();
-			time_left_small = (end - start)/1000;
+			time = time_left_small = (end - start)/1000;
 			console.log(1/time_left_small);
 			start = new Date().getTime();
 			updateChart8(left_small,1/time_left_small);	
@@ -273,11 +414,16 @@
 	    }else if(x == 32){
 	    	thumb++;	
 	    	end = new Date().getTime();
-			time_thumb = (end - start)/1000;
+			time = time_thumb = (end - start)/1000;
 			console.log(1/time_thumb);
 			start = new Date().getTime();
 			updateChart9(thumb,1/time_thumb);		 
 	    }
+		
+		gross++;
+		
+		updateChart10(gross,1/time);
+		
 
 	}	
 
@@ -297,7 +443,8 @@
 			"Right-Index = " + right_index +
 			"<br>Right-Middle = " + right_middle +
 			"<br>Right-Ring = " + right_ring +	
-			"<br>Right-Small = " + right_index 
+			"<br>Right-Small = " + right_small +
+			"<br>Total-Counts = " + gross 
 			);
 
 
@@ -310,8 +457,15 @@
 		 left_small=0;
 		 right_small=0;
 		 thumb = 0;
+		 gross = 0;
 		 $(".text").val('');
-	})
+		 
+		 
+		 
+		 
+		 
+	
+	});
 
 	$("#prospects_form").submit(function(e) {
 	    e.preventDefault();

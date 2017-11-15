@@ -37,7 +37,7 @@
 			<div class="form-group text-center col-md-7">
 				<form id="prospects_form">
 					<p>Enter text below :-</p>
-						<textarea class="text" rows="5" cols="75" onkeypress="myFunction(event)" style="resize: none;"></textarea>
+						<textarea class="text" rows="5" cols="75" onkeypress="myFunction(event)" style="resize: none;" placeholder = 'Start typing to see the graph'"></textarea>
 						<br>
 						  <p class="lead" style="color: #c9c2bf;font-size: 15px">Submit to see number of finger counts</p>
 
@@ -61,26 +61,19 @@
 		</div>
 
 		<div class="text-center" style="padding:20px">
-			<span style="color: #ff6633">Left-Small&nbsp|&nbsp</span>
-			<span style="color: #9966cc">Left-Ring&nbsp|&nbsp</span>
-			<span style="color: #cc6666">Left-Middle&nbsp|&nbsp</span>
-			<span style="color: #99cc99">Left-Index&nbsp|&nbsp</span>
-			<span style="color: #0066ff">Thumb&nbsp|&nbsp</span>
-			<span style="color: #ff9999">Right-Index&nbsp|&nbsp</span>
-			<span style="color: #669999">Right-Middle&nbsp|&nbsp</span>
-			<span style="color: darkgrey">Right-Ring&nbsp|&nbsp</span>
-			<span style="color: #ffff33">Right-Small&nbsp</span>
+			
 		</div>
 
-		<div id="chartContainer" style="height: 300px; width: 100%;">
+		<div id="chartContainer" style="height: 300px; width: 50%; float : left;"></div>
+		<div id="chartContainer2" style="height: 300px; width: 50%;">
 	</div>
-	</div>
-
+	
+</div>
 <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
 
-<script type="text/javascript" src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>	
+<script type="text/javascript" src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>		
 <script src="js/jquery.min.js" type="text/javascript"></script>
 <script src="js/script.js" type="text/javascript"></script>
 
