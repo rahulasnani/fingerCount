@@ -34,6 +34,7 @@
 	var dps8 ;
 	var dps9 ;
 	var dps10;
+	var check;
 	
 	
 	
